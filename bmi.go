@@ -4,6 +4,8 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
+	"strings"
 )
 
 var reader = bufio.NewReader(os.Stdin)
@@ -18,7 +20,14 @@ func main() {
 	fmt.Print("Please enter your height (m): ")
 	heightInput, _ := reader.ReadString('\n')
 
-	fmt.Print(weightInput)
-	fmt.Print(heightInput)
+	weightInput = strings.Replace(weightInput, "\r\n", "", -1)
+	heightInput = strings.Replace(heightInput, "\r\n", "", -1)
+
+	weight, _ := strconv.ParseFloat(weightInput, 64)
+	height, _ := strconv.ParseFloat(heightInput, 64)
+
+	bmi := weight / (height * height)
+
+	fmt.Printf("Your BMI: %.2f", bmi)
 
 }
