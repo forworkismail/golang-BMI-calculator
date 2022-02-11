@@ -1,28 +1,21 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 	"strconv"
 	"strings"
+
+	"github.com/ismailwork/golang-BMI-calculator/info"
 )
-
-var reader = bufio.NewReader(os.Stdin)
-
-const mainTitle = "BMI Calculator"
-const separator = "-------------------"
-const weightPrompt = "Please enter your weight (kg): "
-const heightPrompt = "Please enter your height (m): "
 
 func main() {
 
-	fmt.Println(mainTitle)
-	fmt.Println(separator)
-	fmt.Print(weightPrompt)
+	fmt.Println(info.MainTitle)
+	fmt.Println(info.Separator)
+	fmt.Print(info.WeightPrompt)
 	weightInput, _ := reader.ReadString('\n')
 
-	fmt.Print(heightPrompt)
+	fmt.Print(info.HeightPrompt)
 	heightInput, _ := reader.ReadString('\n')
 
 	weightInput = strings.Replace(weightInput, "\r\n", "", -1)
