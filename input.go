@@ -26,5 +26,5 @@ func getUserMetrics() (weight float64, height float64) {
 	weight, _ = strconv.ParseFloat(weightInput, 64)
 	height, _ = strconv.ParseFloat(heightInput, 64)
 
-	return
+	return weight, height
 }
