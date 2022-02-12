@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strconv"
-	"strings"
 
 	"github.com/ismailwork/golang-BMI-calculator/info"
 )
@@ -11,17 +9,8 @@ import (
 func main() {
 
 	info.PrintWelcome()
-	fmt.Print(info.WeightPrompt)
-	weightInput, _ := reader.ReadString('\n')
 
-	fmt.Print(info.HeightPrompt)
-	heightInput, _ := reader.ReadString('\n')
-
-	weightInput = strings.Replace(weightInput, "\r\n", "", -1)
-	heightInput = strings.Replace(heightInput, "\r\n", "", -1)
-
-	weight, _ := strconv.ParseFloat(weightInput, 64)
-	height, _ := strconv.ParseFloat(heightInput, 64)
+	weight, height := getUserMetrics()
 
 	bmi := weight / (height * height)
 
